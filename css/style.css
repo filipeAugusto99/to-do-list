@@ -1,0 +1,144 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  font-size: 16px;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  background-color: #121212;
+}
+
+header {
+  display: block;
+}
+
+.todolist header {
+  background-color: #8b1d3d;
+  padding: 20px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  color:#fff;
+  font-size: 1.3em;
+  width: 600px;
+  margin: 0 auto;
+}
+
+.wrapper-list ul.list li{
+  position: relative;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  background-color: #262e4c;
+  padding: 20px;
+  transition: background-color 300ms ease;
+}
+
+.wrapper-list ul.list li.removed {
+  animation: collapseItem 300ms ease;
+}
+
+.wrapper-list ul.list li.hidden {
+  display: none;
+}
+
+.wrapper-list ul.list li:hover {
+  background-color: #323b5c;
+}
+
+.wrapper-list ul.list:hover button.remove {
+  opacity: 1;
+}
+
+.wrapper-list ul.list .check {
+  position: relative;
+  display: flex;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #404a6e;
+  cursor: pointer;
+  transition: background-color 200ms ease;
+}
+
+.wrapper-list ul.list .check:hover,
+.wrapper-list ul.list .done .check {
+  background-color: #171d37;
+}
+
+.wrapper-list ul.list .done .check:after {
+  display: block;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: green;
+}
+
+.wrapper-list ul.list .task {
+  color: #b1b2c9;
+  padding-left: 20px;
+}
+
+.wrapper-list ul.list .done .task {
+  text-decoration: line-through;
+}
+
+.wrapper-list ul.list .task:hover .remove {
+  opacity: 1;
+}
+
+
+.wrapper-list ul.list .remove {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  border-style: none;
+  outline: none;
+  font-weight: bold;
+  background-color: red;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.wrapper-list ul.list .remove:after {
+  content: 'x';
+  color: white;
+  display: block;
+}
+
+.inputTask {
+  outline: none;
+  border: none;
+  padding: 20px;
+  width: 100%;
+  background-color: #171d37;
+  color: white;
+  font-size: 1.1em;
+}
+
+@keyframes collapseItem { 
+  0% {
+    transform: rotateX(0deg);
+  }
+
+  100% {
+    transform: rotateX(-90deg);
+  }
+}
